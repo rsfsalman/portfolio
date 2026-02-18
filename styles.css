@@ -1,0 +1,129 @@
+/*
+===============================================================================
+COMP 10272 - Portfolio Website CSS
+Author: Salman Farhat
+Student ID: 000963521
+File: styles.css
+Purpose:
+  This stylesheet defines custom styles and animations used in the
+  portfolio web project. It includes color transitions, scaling 
+  effects, hover interactions, image handling, responsive design tweaks, 
+  and layout enhancements for various devices.
+
+Statement of Authorship:
+  I Salman Farhat, Student 000963521 certify that this material is my 
+  original work. No other person's work has been used without due acknowledgment. 
+  I have not made my work available to anyone else.
+===============================================================================
+*/
+
+/* -----------------------------------------------
+   General Reset & Typography
+-------------------------------------------------- */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* -----------------------------------------------
+   Header Animation (Color + Scale)
+   Animation: colorShift
+   Animates the following properties:
+   1. background-color – light to blue and back.
+   2. color – text changes from black to white.
+   3. letter-spacing – slightly spreads the text at the midpoint.
+   4. box-shadow – adds a soft glow at midpoint for emphasis.
+  
+   Animation: scaleANDshrink
+   5. transform – scales element up and down to draw attention.
+
+  These combined animations animate 5 distinct CSS properties.
+-------------------------------------------------- */
+.animated-header {
+    /* The scaleANDshrink animation lasts 5 seconds per cycle and repeats 5 times, totaling 25 seconds, 
+     The colorShift animation, however, repeats forever.*/
+    animation:
+        colorShift 20s infinite,
+        scaleANDshrink 5s ease-in-out 5;
+}
+
+/* Smooth transition between light and primary blue with text color change */
+@keyframes colorShift {
+    0% {
+        background-color: #f8f9fa;
+        color: #000;
+        letter-spacing: normal;
+        box-shadow: none;
+    }
+    50% {
+        background-color: #007bff;
+        color: #fff;
+        letter-spacing: 2px;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+    }
+    100% {
+        background-color: #f8f9fa;
+        color: #000;
+        letter-spacing: normal;
+        box-shadow: none;
+    }
+}
+
+/* Scaling header to emphasize attention temporarily */
+@keyframes scaleANDshrink {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+/* Grows button and adds highlight color on hover */
+@keyframes growHover {
+    from {
+        transform: scale(1);
+        background-color: white;
+    }
+    to {
+        transform: scale(1.1);
+        background-color: lightblue;
+    }
+}
+
+/* -----------------------------------------------
+   Image Styling
+-------------------------------------------------- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* -----------------------------------------------
+   Footer Styling
+-------------------------------------------------- */
+footer {
+    font-size: 0.9em;
+}
+
+/* -----------------------------------------------
+   Responsive Typography (Mobile)
+-------------------------------------------------- */
+@media (max-width: 576px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+}
